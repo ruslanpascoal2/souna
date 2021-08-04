@@ -1,46 +1,50 @@
 import * as Tone from 'tone'
-import { useEffect } from 'react';
+import { Notes } from './Notes';
+import { NoteBar } from './NoteBar';
+import { useState, useEffect } from 'react';
 export function Music() {
     let synth;
     let now;
+    const [currentNote, setCurrentNote] = useState("C5");
+
 
     useEffect(() => {
-        synth =  new Tone.Synth().toDestination();
+        setCurrentNote()
+        console.log(currentNote);
+    }, [currentNote]);
+
+    const playRandom = () => {
+        synth = new Tone.Synth().toDestination();
         now = Tone.now()
-    })
+        const notes = 8;
+        const interval = 1;
+        
+        for (let i = 0; i < notes; i++) {
+            const rand = Notes[getRandomInt(0, Notes.length - 1)];
+            setCurrentNote(rand);
+            console.log(currentNote);
+            synth.triggerAttackRelease(rand, "8n", now + (interval * i));
+        }
+    }
 
-    const notes_3 = ["C3", "D3", "E3", "F3", "G3", "A3", "B3"];
-    const notes_4 = ["C4", "D4", "E4", "F4", "G4", "A4", "B4"];
-
-    const play = (note) => {
-        synth.triggerAttackRelease(note, "8n");
+    const stop = () => {
+        
     }
 
     return (
-        <div className="space-y-3 flex flex-col items-center justify-center">
-            <div>
-                {
-                    notes_3.map(x => {
-                        return (
-                            <button style={{background: "#ddd"}} className="mr-3 px-4" key={x} onClick={() => play(x)}>
-                                <span>{x}</span>
-                            </button>
-                        )
-                    })
-                }
-            </div>
-            <div>
-                {
-                    notes_4.map(x => {
-                        return (
-                            <button style={{background: "#eee"}} className="mr-3 px-4" key={x} onClick={() => play(x)}>
-                                <span>{x}</span>
-                            </button>
-                        )
-                    })
-                }
-            </div>
+        <div className="flex flex-col items-center justify-center">
+            <button onClick={() => playRandom()}>play</button>
+            <button onClick={() => stop()}>stop</button>
+            <section className="flex items-center">
+                <NoteBar note={currentNote} />
+            </section>
         </div>
     )
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
