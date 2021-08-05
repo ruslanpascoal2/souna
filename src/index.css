@@ -31,3 +31,23 @@
 .beat.active{
     @apply bg-blue
 }
+
+#Notes{
+    width: 100%;
+    height: 20px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.Note {
+    width: 20%;
+    height: 100%;
+    position: relative;
+    float: left;
+    background-color: black;
+    opacity: 0.2;
+    transition: opacity 0.5s;
+}
+.Note.active {
+    opacity: 1;
+    transition-duration: 0.1s;
+}
