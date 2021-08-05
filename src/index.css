@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card{
+    @apply rounded-lg p-4;
+}
+
+.border--pink{
+    @apply border-b-4 border-solid border-pink;
+}
+
+.border--violet{
+    @apply border-b-4 border-solid border-violet;
+}
+
+.border--blue{
+    @apply border-b-4 border-solid border-blue;
+}
+
+.beat{
+    @apply rounded-lg h-full w-9;
+    background: rgba(0,0,0, 0.2);
+    border-bottom: 1px solid #d30cb860;
+}
+
+.beat:hover{
+    background-color: rgba(211, 12, 184, .5);
+}
+
+.beat.active{
+    @apply bg-blue
+}

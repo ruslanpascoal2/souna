@@ -1,6 +1,5 @@
 import * as Tone from 'tone'
-import { Notes } from './Notes';
-import { NoteBar } from './NoteBar';
+import { Pattern } from './pattern/Pattern';
 import { useState, useEffect } from 'react';
 export function Music() {
     let synth;
@@ -10,33 +9,26 @@ export function Music() {
 
     useEffect(() => {
         setCurrentNote()
-        console.log(currentNote);
     }, [currentNote]);
 
     const playRandom = () => {
-        synth = new Tone.Synth().toDestination();
-        now = Tone.now()
-        const notes = 8;
-        const interval = 1;
-        
-        for (let i = 0; i < notes; i++) {
-            const rand = Notes[getRandomInt(0, Notes.length - 1)];
-            setCurrentNote(rand);
-            console.log(currentNote);
-            synth.triggerAttackRelease(rand, "8n", now + (interval * i));
-        }
+
     }
 
     const stop = () => {
-        
+        Tone.Transport.stop();
     }
 
     return (
         <div className="flex flex-col items-center justify-center">
-            <button onClick={() => playRandom()}>play</button>
-            <button onClick={() => stop()}>stop</button>
-            <section className="flex items-center">
-                <NoteBar note={currentNote} />
+
+            <div className="flex flex-row space-x-4">
+                <button className="text-pink" onClick={() => playRandom()}>play</button>
+                <button className="text-pink" onClick={() => stop()}>stop</button>
+            </div>
+
+            <section className="px-4 py-8">
+                <Pattern beats={16} />
             </section>
         </div>
     )
