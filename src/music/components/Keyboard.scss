@@ -1,0 +1,24 @@
+
+.black-key{
+    &:hover{
+    background: rgb(92, 92, 92) !important;
+    }
+    &:active{
+        background: rgb(106, 106, 106) !important;
+    }
+}
+
+.key{
+    &:hover{
+        background: rgb(212, 212, 212) !important;
+    }
+    &:active{
+        background: #a1a1a1 !important;
+    }
+}
+
+.key-wrapper{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}

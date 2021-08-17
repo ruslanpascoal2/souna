@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import {Music} from './music/Music';
 
 import {
