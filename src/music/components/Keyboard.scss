@@ -1,23 +1,40 @@
 
-.black-key{
-    &:hover{
-    background: rgb(92, 92, 92) !important;
+@media screen and (max-width: 768px) {
+    .key {
+        &:active {
+            background: #fff !important;
+        }
     }
-    &:active{
-        background: rgb(106, 106, 106) !important;
+
+    .black-key {
+        &:active {
+            background: #111 !important;
+        }
     }
 }
 
-.key{
-    &:hover{
-        background: rgb(212, 212, 212) !important;
+@media screen and (min-width: 769px){
+    .black-key {
+        &:hover {
+            background: rgb(92, 92, 92) !important;
+        }
+        &:active {
+            background: rgb(106, 106, 106) !important;
+        }
     }
-    &:active{
-        background: #a1a1a1 !important;
+    
+    .key {
+        &:hover {
+            background: rgb(212, 212, 212) !important;
+        }
+        &:active {
+            background: #a1a1a1 !important;
+        }
     }
+    
 }
 
-.key-wrapper{
+.key-wrapper {
     width: 100%;
     height: 100%;
     position: relative;
