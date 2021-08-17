@@ -44,13 +44,12 @@ export function Keyboard() {
 
     const stop = () => {
         synth.current.dispose();
-
     }
 
     return (
         <div
             onKeyDown={(event) => playNote(event)}
-            id="keyboard" className="card flex justify-center flex-col items-center" style={isMobile ? keyboardStyles.generalMobile : keyboardStyles.general}>
+            id="keyboard" className="card keyboard flex justify-center flex-col items-center" style={isMobile ? keyboardStyles.generalMobile : keyboardStyles.general}>
             <div style={isMobile ? keyboardStyles.controlSectionMobile : keyboardStyles.controlSection} className="flex">
                 <div className="flex flex-col" style={{ width: "30%", borderRight: "2px solid #8d8d8d" }}>
                     <div style={isMobile ? { padding: "1rem" } : { padding: "3rem" }}>
