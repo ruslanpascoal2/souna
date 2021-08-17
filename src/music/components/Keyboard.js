@@ -3,7 +3,7 @@ import { keys } from "../Notes";
 import * as Tone from 'tone'
 import { useEffect, useRef } from 'react';
 import { distinctUntilChanged,  fromEvent, map } from 'rxjs';
-import roland from "./roland.png";
+// import roland from "./roland.png";
 
 export function Keyboard() {
     const synth = useRef(new Tone.AMSynth().toDestination());
@@ -50,7 +50,7 @@ export function Keyboard() {
                 <div style={keyboardStyles.controlSection} className="flex">
                     <div className="flex flex-col" style={{ width: "30%", borderRight: "2px solid #8d8d8d" }}>
                         <div className="p-6">
-                            <img alt="" src={roland}  style={{ filter: 'opacity(0.5)', height: "50px" }}/>
+                            {/* <img alt="" src={roland}  style={{ filter: 'opacity(0.5)', height: "50px" }}/> */}
                         </div>
                         <div style={{ height: "6px", width: "100%", background: "#8e8e8e" }}></div>
                     </div>
