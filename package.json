@@ -2,7 +2,7 @@
   "name": "souna",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://ruslanpascoal2.github.io/souna",
+  "homepage": ".",
   "dependencies": {
     "@craco/craco": "^6.2.0",
     "@testing-library/jest-dom": "^5.14.1",
