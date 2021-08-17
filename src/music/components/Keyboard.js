@@ -1,14 +1,13 @@
 import './Keyboard.scss';
 import { keys } from "../Notes";
 import * as Tone from 'tone'
-import { useEffect } from 'react';
-import { distinct, distinctUntilChanged, distinctUntilKeyChanged, fromEvent, map, tap } from 'rxjs';
+import { useEffect, useRef } from 'react';
+import { distinctUntilChanged,  fromEvent, map } from 'rxjs';
 
 export function Keyboard() {
-    let synth;
-    useEffect(() => {
-        synth = new Tone.AMSynth().toDestination();
+    const synth = useRef(new Tone.AMSynth().toDestination());
 
+    useEffect(() => {
         fromEvent(document, "keydown").pipe(
             map(x => x.key),
             distinctUntilChanged()
@@ -21,7 +20,7 @@ export function Keyboard() {
             distinctUntilChanged()
         )
         .subscribe(() => stop())
-    })  
+    }, [])  
 
     const playNote = (note, keyPressed) => {
         let _note;
@@ -35,12 +34,12 @@ export function Keyboard() {
         }
 
         if(!_note) return;
-        synth = new Tone.AMSynth().toDestination();
-        synth.triggerAttack(_note, "8n");
+        synth.current = new Tone.AMSynth().toDestination();
+        synth.current.triggerAttack(_note, "8n");
     }
 
     const stop = () => {
-        synth.dispose();
+        synth.current.dispose();
     }
 
     return (
@@ -50,7 +49,7 @@ export function Keyboard() {
                 <div style={keyboardStyles.controlSection} className="flex">
                     <div className="flex flex-col" style={{ width: "30%", borderRight: "2px solid #8d8d8d" }}>
                         <div className="p-6">
-                            <img src="roland.png" style={{ filter: 'opacity(0.5)', height: "50px" }}></img>
+                            <img src="roland.png" style={{ filter: 'opacity(0.5)', height: "50px" }} alt=""></img>
                         </div>
                         <div style={{ height: "6px", width: "100%", background: "#8e8e8e" }}></div>
                     </div>

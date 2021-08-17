@@ -1,25 +1,10 @@
 import './App.scss';
-import {Music} from './music/Music';
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Music } from './music/Music';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <div>
-          <Switch>
-            <Route exact path="/">
-              <Music />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
+      <Music />
     </div>
   );
 }
