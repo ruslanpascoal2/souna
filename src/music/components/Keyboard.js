@@ -50,7 +50,7 @@ export function Keyboard() {
                 <div style={keyboardStyles.controlSection} className="flex">
                     <div className="flex flex-col" style={{ width: "30%", borderRight: "2px solid #8d8d8d" }}>
                         <div className="p-6">
-                            <img src={roland}  style={{ filter: 'opacity(0.5)', height: "50px" }}/>
+                            <img alt="" src={roland}  style={{ filter: 'opacity(0.5)', height: "50px" }}/>
                         </div>
                         <div style={{ height: "6px", width: "100%", background: "#8e8e8e" }}></div>
                     </div>
